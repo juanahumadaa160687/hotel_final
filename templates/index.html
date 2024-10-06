@@ -1,0 +1,380 @@
+{% load static %}
+{% load sweetify %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/92c054d238.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logoDorado.svg' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Hotel Pacific Reef</title>
+</head>
+
+<body>
+
+<!-- Translate -->
+
+<div class="translate">
+    <span><img src="{% static 'img/uk.svg' %}" alt="UK flag" width="20"><a class="a" href="" style="font-size: 11pt"> Welcome</a></span>
+    <span><img src="{% static 'img/spain.svg' %}" alt="UK flag" width="20"><a class="a" href="{% url 'index' %}" style="font-size: 11pt"> Bienvenido</a></span>
+</div>
+
+
+<!-- Navbar -->
+<nav class="barra-nav navbar navbar-expand-lg text-white" style="background-color: transparent; position: absolute; top: 5%; right: 0; left:0; z-index: 99; width: 100% ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'img/logoBlanco.svg' %}" alt="Logo" width="90">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="barra-nav-link nav-link text-white" aria-current="page" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="barra-nav-link nav-link text-white" href="#habitaciones">Habitaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="barra-nav-link nav-link text-white" href="#servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="barra-nav-link nav-link text-white" href="#galeria">Galería</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="barra-nav-link nav-link text-white" href="">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="barra-nav-link nav-link text-white" href="">Registrarse</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Botón Top -->
+<button onclick="topFunction()" id="Top" title="Go to top" ><i class="fas fa-angle-double-up" style="color: #2f2f2f;padding-right: 5px"></i> Volver al Inicio</button>
+
+<!-- Hero -->
+<div class="hero" id="hero">
+
+</div>
+
+
+<div class="hero-text2 d-flex flex-column justify-content-center align-items-center" style="text-align: center; left: 50%; width: 60%">
+    <h1>VIVE EL MOMENTO</h1>
+    <p>Pacific Reef Hotel hace que cada estancia sea insuperable, siempre<br>creciendo, pero manteniendo la comodidad y familiaridad a tu alcance.</p>
+</div>
+
+<div class="" style="border-radius: 10px; position: absolute; z-index: 99; top: 83%; left: 8%; background-color: white; box-shadow: 5px 10px 30px #444444; display: flex; flex-direction: row; justify-content: center; align-items: center">
+    <div style="margin: 50px">
+        <form action="{% url 'booking' %}" method="post" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 20px">
+            {% csrf_token %}
+            {{ booking_form.as_p }}
+            <div style="width: 35%; ">
+                <button class="btn btn-warning" name="search" type="submit" style="width: 100%; background-color: #FFCB74;">Buscar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Promociones -->
+<div class="suscripcion" style="padding: 90px 70px 20px 70px">
+    <div class="promo">
+        <p><strong>Membresía Pacific Reef</strong></p>
+        <h2>¿Aún no eres Socio?<br> Inscríbete Hoy</h2>
+        <p>Sé recompensado por tus viajes con puntos, noches gratis y estatus.</p>
+        <div>
+            <button type="button" class="btn bg-warning btn-lg" style="color: #2f2f2f"><a href="">Inscríbete</a></button>
+            <button type="button" class="btn bg-secondary btn-lg" style="color: #fff"><a href="#">Saber Más</a></button>
+        </div>
+    </div>
+    <div class="imagen"><img src="{% static 'img/suscripcion.jpeg' %}" alt="" width="410"></div>
+</div>
+
+<!-- Habitaciones -->
+<div class="habitaciones" id="habitaciones">
+    <div class="habitacion">
+        <h2 id="room">Habitaciones</h2>
+        <p id="rooms">Descubre nuestras habitaciones y suites, cada una<br> con su propio estilo y personalidad.</p>
+        <br>
+        <div class="buttons" style="margin-top: 5px">
+            <button type="button" class="btn bg-warning"  style="color: #2f2f2f"><a href="">Habitacion Premium</a></button>
+            <button type="button" class="btn bg-warning" style="color: #2f2f2f" ><a href="">Habitacion Turista</a></button>
+        </div>
+    </div>
+</div>
+
+<!-- Información del Hotel -->
+<div class="info" style="background-color: #fff; height: 100%">
+    <div class="foto">
+        <img src="{% static 'img/info_hotel.jpeg' %}" alt="" width="700">
+    </div>
+    <div class="informacion d-flex flex-column justify-content-center align-items-center" style="color: #f6f6f6; background-color: #3a3b3c; padding: 0; height: 100%; width: 50%">
+        <h2 id="info">Información del Hotel</h2>
+        <ul>
+            <li><i class="fa fa-clock-o"></i> Check-in 16:00</li>
+            <li><i class="fa fa-clock-o"></i> Check-out 12:00</li>
+            <li><i class="fas fa-smoking-ban"></i> Hotel para no fumadores</li>
+            <li><i class="fas fa-paw"></i> Politica de Mascotas
+                <p id="politics"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Se admiten mascotas, el número máximo de <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mascotas en la habitación: 2</p></li>
+            <li><i class="fas fa-car"></i> Estacionamiento según disponibilidad</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Servicios -->
+
+<div class="servicios" style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; padding: 20px;" id="servicios">
+    <div class="texto" style="padding: 30px">
+        <h2 style="text-align: center;">Servicios</h2>
+        <p style="font-size: 12pt; text-align: center; line-height: 0">Descubre los servicios que ofrecemos en nuestro hotel</p>
+        <br>
+        <br>
+        <div class="service_list" style="display: flex; flex-direction: row; justify-content: center; align-items: start; line-height: 3.0">
+            <div>
+                <ul>
+                    <li><i class="fas fa-swimmer"></i> Piscina al aire libre.</li>
+                    <li><i class="fas fa-smoking-ban"></i> Habitaciones sin humo.</li>
+                    <li><i class="fas fa-utensils"></i> Restaurante.</li>
+                    <li><i class="fas fa-umbrella-beach"></i> Situado en la playa.</li>
+                    <li><i class="fas fa-wifi"></i> Wi-Fi Gratis.</li>
+                    <li><i class="fas fa-wheelchair"></i> Adaptado personas de movilidad reducida.</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><i class="fas fa-coffee"></i> Desayuno fabuloso.</li>
+                    <li><i class="fas fa-glass-martini-alt"></i> Bar.</li>
+                    <li><i class="fas fa-dumbbell"></i> Gimnasio.</li>
+                    <li><i class="fas fa-spa"></i>SPA y centro de bienestar.</li>
+                    <li><i class="fas fa-concierge-bell"></i> Recepción 24 horas.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="pictures" style="gap: 20px">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col" style="display: flex; flex-direction: row; justify-content: end; align-items: end">
+                    <img src="{% static 'img/servicios1.jpeg' %}" alt=SPA"" width="485" height="330">
+                </div>
+                <div class="col" style="display: flex; flex-direction: column; justify-content: end; align-items: end; gap: 20px">
+                    <img src="{% static 'img/serv1.jpeg' %}" alt="" width="150">
+                    <img src="{% static 'img/serv2.jpeg' %}" alt="" width="150">
+                    <img src="{% static 'img/serv3.jpeg' %}" alt="" width="150">
+                </div>
+            </div>
+            <br>
+            <div class="row" style="gap: 10px">
+                <div class="col" style="display: flex; flex-direction: row; justify-content: end; align-items: center; gap: 20px">
+                    <img src="{% static 'img/serv4.jpeg' %}" alt="" width="150">
+                    <img src="{% static 'img/serv5.jpeg' %}" alt="" width="150">
+                    <img src="{% static 'img/serv6.jpeg' %}" alt="" width="150">
+                    <img src="{% static 'img/serv7.jpeg' %}" alt="" width="150">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Galería -->
+<div class="galeria container-fluid" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0 20px 20px 20px; background-color: #2f2f2f" id="galeria">
+    <div class="gallery" style="padding: 0px 20px 20px 20px;"></div>
+    <div class="row">
+        <div class="col">
+            <img src="{% static 'img/galeria1.jpeg' %}" alt="" width="920">
+        </div>
+        <div class="col" style="gap: 20px">
+            <div>
+                <img src="{% static 'img/galeria2.jpeg' %}" alt="" width="400">
+            </div>
+            <br>
+            <div>
+                <img src="{% static 'img/galeria3.jpeg' %}" alt="" width="400">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col" style="gap: 20px">
+            <div>
+                <img src="{% static 'img/galeria5.jpeg' %}" alt="" width="400">
+            </div>
+            <br>
+            <div>
+                <img src="{% static 'img/galeria6.jpeg' %}" alt="" width="400">
+            </div>
+        </div>
+        <div class="col">
+            <img src="{% static 'img/galeria4.jpeg' %}" alt="" width="920" height="561">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <img src="{% static 'img/galeria7.jpeg' %}" alt="" width="913">
+        </div>
+        <div class="col" style="gap: 20px">
+            <div>
+                <img src="{% static 'img/galeria8.jpeg' %}" alt="" width="400">
+            </div>
+            <br>
+            <div>
+                <img src="{% static 'img/galeria9.jpeg' %}" alt="" width="400" height="225">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for message in messages %}
+    {% if message.tags == 'error' %}
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "{{ message }}",
+            });
+        </script>
+    {% elif message.tags == 'success' %}
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: "{{ message }}",
+                timer: 2000
+            });
+        </script>
+    {% elif message.tags == 'info' %}
+        <script>
+            Swal.fire({
+                icon: 'info',
+                title: 'Información',
+                text: "{{ message }}",
+            });
+        </script>
+    {% elif message.tags == 'warning' %}
+        <script>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: "{{ message }}",
+            });
+        </script>
+    {% endif %}
+{% endfor %}
+
+
+<!-- Footer -->
+<div class="footer container-fluid" style="background-color: #111111; padding-top: 20px; padding-right: 30px; padding-left: 30px; width: 100%; ">
+    <div class="row" style="width: 100%">
+
+        <div class="col" style="width: 100%; display: flex; flex-direction: row" >
+
+            <div class="redes-sociales" style="display: flex; flex-direction: row; justify-content: start; align-items: center; border-bottom: 2px solid #FFCB74;width: 100%">
+
+                <div style="display: flex; flex-direction: row; justify-content: start; align-items: center;  width: 100%; gap:10px">
+
+                    <div style="display: flex; justify-content: space-around; align-items: center; gap: 20px; padding-bottom: 10px">
+                        <span style="color: #FFCB74; font-size: 10pt">Síguenos en:</span>
+                        <span><a href=""><i class="fa fa-instagram" style="font-size: 16pt; text-align: center; color: #FFCB74"></i></a></span>
+                        <span><a href=""><i class="fa fa-facebook" style="font-size: 16pt; text-align: center; color: #FFCB74"></i></a></span>
+                        <span><a href=""><i class="fa fa-twitter" style="font-size: 16pt; text-align: center; color: #FFCB74"></i></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="contacto" style="display: flex; flex-direction: row; justify-content: end; align-items: end; gap: 20px; border-bottom: 2px solid #FFCB74; width: 100%">
+                <div style="display: flex; flex-direction: row; justify-content: end; align-items: end; gap: 20px; width: 100%">
+                    <p style="color: #FFCB74; font-size: 10pt">Contáctanos:</p>
+                    <p style="color: #FFCB74; font-size: 9pt"><i class="fas fa-map-marker-alt"></i> Arturo Prat #1670, Iquique</p>
+                    <p style="color: #FFCB74; font-size: 9pt"><i class="fas fa-phone"></i> +562666665</p>
+                    <p style="color: #FFCB74; font-size: 9pt"><i class="fas fa-envelope"></i> administracion@hotelpacificreef.cl</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between">
+        <div class="col" style="display: flex; flex-direction: row; align-items: center; justify-content: start; width: 100%">
+            <img src="{% static 'img/logoDorado.svg' %}" alt="" width="220px">
+        </div>
+        <div class="col" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; width: 100%">
+            <a href="{% url 'index' %}" style="text-decoration: none; font-size: 13pt; color: #FFCB74">Home</a>
+            <a href="" style="text-decoration: none; font-size: 13pt; color: #FFCB74">Reservas</a>
+            <a href="#" style="text-decoration: none; font-size: 13pt; color: #FFCB74">Membresía</a>
+
+                <a href="" style="text-decoration: none; font-size: 13pt; color: #FFCB74">Cerrar Sesión</a>
+
+                <a href="" style="text-decoration: none; font-size: 13pt; color: #FFCB74">Iniciar Sesión</a>
+
+
+        </div>
+        <div class="col" style="display: flex; flex-direction: row; align-items: center; justify-content: end; width: 100%;">
+            <div id="map" style="width: 70%; height: 200px;">
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="display: flex; flex-direction: column; justify-content: end; align-items: center;">
+        <div class="col">
+            <p class="col" style="text-align: center; color: #FFCB74; font-size: 12px">© 2024 Hotel Pacific Reef. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Boton Top -->
+<script src="{% static 'js/button_top.js' %}"></script>
+
+<!-- Mapa -->
+<script>
+    function iniciarMap() {
+        var coord = { lat: -20.239342, lng: -70.146121 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: coord
+        });
+        var marker = new google.maps.Marker({
+            position: coord,
+            map: map
+        });
+    }
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+
+</body>
+</html>

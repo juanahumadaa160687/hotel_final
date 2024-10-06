@@ -1,0 +1,142 @@
+/* CSS Registro */
+
+.formulario {
+    border: 1px solid #444444;
+    border-radius: 10px;
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    margin-top: 10px;
+}
+
+.form-control:focus{
+    outline: none;
+    background-color: white;
+    color: black;
+}
+
+.form-control[type="text"]{
+    margin-bottom: 10px;
+    color: black;
+}
+
+.form-control[type="submit"]{
+    background-color: #FFCB74;
+    color: #444444;
+    cursor: pointer;
+    margin-top: 30px;
+    border: none;
+}
+
+.form-control input{
+    border: 1px solid black;
+    color: white;
+}
+
+.form_control[type="email"]{
+    margin-bottom: 10px;
+}
+
+.form-control[type="password"]{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-control  {
+    margin-bottom: 10px;
+}
+
+
+/* Esconder la scrollbar en Chrome, Safari y Opera */
+.forms::-webkit-scrollbar {
+    display: none;
+}
+
+/* Esconder la scrollbar en IE, Edge y Firefox */
+.forms {
+    -ms-overflow-style: none;  /* IE y Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.formulario3::-webkit-scrollbar {
+    display: none;
+}
+
+/* Esconder la scrollbar en IE, Edge y Firefox */
+.formulario3 {
+    -ms-overflow-style: none;  /* IE y Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.tabla::-webkit-scrollbar {
+    display: none;
+}
+
+.tabla{
+    -ms-overflow-style: none;  /* IE y Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#picture{
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('../img/signup.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+}
+
+.letras{
+    position: absolute;
+    z-index: 7;
+    top: 51%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+}
+
+.letras1{
+    position: absolute;
+    z-index: 7;
+    top: 61%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.letras2{
+    position: absolute;
+    z-index: 7;
+    top: 45%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.letras3{
+    position: absolute;
+    z-index: 7;
+    top: 55%;
+    left: 83%;
+    transform: translate(-50%, -50%);
+}
+
+.letras4{
+    position: absolute;
+    z-index: 7;
+    top: 60%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+}
+
+/* //CSS Registro */

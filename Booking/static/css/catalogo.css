@@ -1,0 +1,151 @@
+/* CSS Hab Premium*/
+
+/* Slideshow */
+#slide1{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_premium_slide.jpeg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+#slide2{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_premium_slide2.jpeg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+#slide3{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_premium3.jpeg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+#slide4{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_premium4.jpeg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+#slide5{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_premium5.jpeg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+li{
+    font-size: 15pt;
+    font-family: "Montserrat", sans-serif;
+}
+
+ul{
+    list-style: none;
+}
+
+.list{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    font-family: "Montserrat", sans-serif;
+    color: #2f2f2f;
+}
+
+/* CSS Modal Galeria */
+
+div.gallery {
+    border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: 250px;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* //CSS Hab Premium*/
+
+
+
+
+/* CSS Hab Turista */
+/* Slideshow */
+#slide11{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_turista1.jpeg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+#slide21{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_turista2.jpg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+#slide31{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_turista3.jpeg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+#slide41{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_turista5.jpeg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+#slide51{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/hab_turista6.jpeg");
+    height: 700px;
+    width: 100%;
+    background-size: cover;
+}
+
+/* /CSS Modal Galeria */
+/* //CSS Hab Turista */

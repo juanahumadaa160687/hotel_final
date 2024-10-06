@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+        <div class="row mt-4" style="padding: 20px">
+            <!-- Información del cliente -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" style="background-color: #FFCB74">
+                        <h5 class="mb-0">Información del cliente</h5>
+                    </div>
+                    <div class="card-body" style="width: 100%">
+                        {% if user.profile.id_cliente is not None %}
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Tipo de Documento: {{ user.profile.tipo_documento }}</li>
+                                <li class="list-group-item">Nro. Documento: {{ user.profile.documento }}</li>
+                                <li class="list-group-item">Nombre: {{ user.profile.nombre }}</li>
+                                <li class="list-group-item">Apellido: {{ user.profile.apellido }}</li>
+                                <li class="list-group-item">Email: {{ user.email }}</li>
+                                <li class="list-group-item">Fecha de Nacimiento: {{ user.profile.edad }}</li>
+                                <li class="list-group-item">Teléfono: {{ user.profile.telefono }}</li>
+                                <li class="list-group-item">Dirección: {{ user.profile.direccion }}</li>
+                                <li class="list-group-item">Ciudad: {{ user.profile.ciudad }}</li>
+                                <li class="list-group-item">País: {{ user.profile.pais.name }}</li>
+                            </ul>
+                        {% else %}
+                            <p style="text-align: left">Por favor, complete su información personal</p>
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ form | crispy }}
+                                <button class="btn btn-warning btn-lg float-end mt-3" type="submit">Guardar</button>
+                            </form>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información de pago -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" style="background-color: #FFCB74">
+                        <h5 class="mb-0">Información de pago</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'payment' %}">
+                            <select class="form-select" aria-label="Default select example" name="payment_method">
+                                <option selected>Medios de Pago</option>
+                                <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+                                <option value="Tarjeta de Débito">Tarjeta de Débito</option>
+                                <option value="PayPal">PayPal</option>
+                            </select>
+                        </form>
+
+                        {% if context %}
+                            <div class="col-md-9">
+                                <div class="card">
+                                    <div class="card-header" style="background-color: #FFCB74">
+                                        <h5 class="mb-0">Costos de la Reserva</h5>
+                                    </div>
+
+                                    <div class="card-body table-responsive">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">Estadía por {{ estadia }} días: {{ total_estadia }}</li>
+                                            <li class="list-group-item">Impuestos: {{ impuesto }} </li>
+                                            
+                                            <li class="list-group-item">Valor total: {{ total }}</li>
+                                            <li class="list-group-item">Reserva (30%): {{ reserva }} </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        <div>
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ pago_form.metodo_pago }}
+                                <br>
+                                <br>
+                                {{ pago_form.moneda }}
+                                <br>
+                                <button class="btn btn-warning btn-lg float-end mt-3" type="submit">Pagar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+{% endblock %}

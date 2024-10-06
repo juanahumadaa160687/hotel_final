@@ -1,0 +1,80 @@
+/* Fonts */
+
+.italiana-regular {
+    font-family: "Italiana", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.alert-danger {
+    display: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+}
+
+/* navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #293133;
+    color: white;
+    padding: 10px 20px;
+    opacity: 100%;
+
+}
+
+.menu-left, .menu-right, .logo {
+    display: flex;
+    align-items: center;
+}
+
+.cta-button {
+    background-color: #FFCB74;
+    color: #293133;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 11pt;
+    display: block;
+}
+
+.cta-button:hover {
+    background-color: #293133;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ddd;
+}
+
+.navbar a:not(.cta-button) {
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:not(.cta-button):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+

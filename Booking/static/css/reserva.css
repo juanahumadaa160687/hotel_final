@@ -1,0 +1,19 @@
+.contenedor-reserva {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.card {
+    height: 100%;
+}
+
+.btn-primary {
+    background-color: #2f2f2f;
+    border-color: #2f2f2f;
+}
+
+.btn-warning {
+    background-color: #FFCB74;
+    color: #2f2f2f;
+}

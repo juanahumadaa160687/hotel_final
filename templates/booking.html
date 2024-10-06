@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <div class="contenedor-reserva" style="padding: 20px; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 20px; -webkit-scrollbar: none">
+        <div class="col habitaciones" style="gap: 40px; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; height: 80vh; overflow: auto">
+            {% if roooms is not None %}
+                {% for r in roooms %}
+            <div class="card" style="width: 700px">
+                <div class="card-header" style="background-color: #FFCB74">
+                    <h5 class="mb-0">Habitación</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">ID: {{ r.room_id }} </li>
+                        <li class="list-group-item">Tipo: {{ r.room_type }} </li>
+                        <li class="list-group-item">Capacidad: {{ r.room_capacity }} Personas</li>
+                        <li class="list-group-item">Precio por noche: ${{ r.room_price }}</li>
+                        <li class="list-group-item">
+                            <form action="{% url 'payment' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="room_id" value="{{ r.room_id }}">
+                                <input type="hidden" name="room_price" value="{{ r.room_price }}">
+                                <input type="hidden" name="room_capacity" value="{{ r.room_capacity }}">
+                                <button type="submit" class="btn btn-warning float-end" name="reservar">Reservar</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                {% endfor %}
+            {% else %}
+
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <script>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: "{{ message }}",
+                            });
+                        </script>
+                    {% elif message.tags == 'success' %}
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: '¡Éxito!',
+                                text: "{{ message }}",
+                                timer: 2000
+                            });
+                        </script>
+                    {% endif %}
+                {% endfor %}
+           
+            {% endif %}
+        </div>
+        <div class="col formulario-reservaa" style="display: flex; flex-direction: column; justify-content: center; align-items: center; ">
+            <div class="card" style=" border-radius: 10px; background-color: white; box-shadow: 5px 10px 30px #444444; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 400px">
+                <div class="card-header" style="width: 100%; background-color: #FFCB74">
+                    <h4 class="text-center mb-4" style="">Buscar habitación</h4>
+                </div>    
+                    <div class="card-body" style="width: 100%">
+                        <form action="{% url 'booking' %}" method="post" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; width: 100%">
+                            {% csrf_token %}
+                            <div style="width: 100%">
+                                <label for="checkin">Check-in</label>
+                                <input class="form-control form-control-md" type="date" name="checkin" id="checkin" placeholder="Check-in" >
+                            </div>
+                            <div style="width: 100%">
+                                <label for="checkout">Check-out</label>
+                                <input class="form-control form-control-md" type="date" name="checkout" id="checkout" placeholder="Check-out">
+                            </div>
+                            <div style="width: 100%">
+                                <label for="adults">Adultos</label>
+                                <input class="form-control form-control-md" type="number" name="adults" id="adults" placeholder="Adultos" value="0">
+                            </div>
+                            <div style="width: 100%">
+                                <label for="children">Niños</label>
+                                <input class="form-control form-control-md" type="number" name="children" id="children" placeholder="Niños" value="0">
+                            </div>
+                            <div style="width: 100%">
+                                <label for="type_room">Tipo de Habitación</label>
+                                <select name="type_room" id="type_room" class="form-select">
+                                    <option selected>Seleciona tu Habitación</option>
+                                    <option value="Premium">Habitación Premium</option>
+                                    <option value="Turista">Habitación Turista</option>
+                                </select>
+                            </div>
+                            <div style="width: 50%; ">
+                                <button class="btn btn-warning" name="search" type="submit" style="width: 100%; background-color: #FFCB74;">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

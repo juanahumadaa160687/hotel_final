@@ -1,0 +1,18 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    height: 100vh;
+}
+
+/* Esconder la scrollbar en Chrome, Safari y Opera */
+.habitaciones::-webkit-scrollbar {
+    display: none;
+}
+
+/* Esconder la scrollbar en IE, Edge y Firefox */
+.habitaciones {
+    -ms-overflow-style: none;  /* IE y Edge */
+    scrollbar-width: none;  /* Firefox */
+}

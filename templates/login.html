@@ -1,0 +1,59 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+
+
+    <div class="formulario1" style="display: flex; flex-direction: column; justify-content: end; align-items: center; color: white; height: 86vh; width: 30vw; padding: 30px 30px 20px 30px; position: absolute; z-index: 99; top: 55%; left: 18%; transform: translate(-50%, -50%);">
+        <img src="{% static 'img/logoDorado.svg' %}" alt="" width="100px">
+        <br>
+        <h2 style="color: #FFCB74; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: bold">¡Bienvenido!</h2>
+        <p style="text-align: center">Estamos felices de tenerte de nuevo aquí</p>
+        <br>
+        <form action="" method="post" style="width: 100%">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <br>
+            <button type="submit" class="btn d-grid gap-2 col-6 mx-auto" style="background-color: #FFCB74; border: none; color: #111111; width: 100%; margin-top: 10px">Iniciar Sesión</button>
+        </form>
+        <br>
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 100%">
+            <p><a href="#" style="color: #FFCB74;">¿Olvidaste la Contraseña?</a></p>
+            <p style="color: #fff;">¿No tienes cuenta? <a href="{% url 'registro' %}" style="color: #FFCB74;"> Regístrate</a></p>
+            <p><a href="{% url 'index' %}" style="color: #FFCB74">Volver al Home</a></p>
+        </div>
+    </div>
+
+
+    <div id="picture1" style="height: 100vh; width: 100%">
+
+        <div>
+            <h2 style="font-family: 'Italiana',serif; opacity: 60%; font-size: 90pt; color: #FFCB74; position: absolute;z-index: 7;top: 51%;left: 53%;transform: translate(-50%, -50%);">Bienvenido</h2>
+            <h3 style="font-family: 'Italiana',serif; opacity: 60%; color: #FFCB74; font-size: 80pt; position: absolute;z-index: 7;top: 61%;left: 70%;transform: translate(-50%, -50%);">Welcome</h3>
+            <h3 style="font-family: 'Italiana',serif; opacity: 60%; color: #FFCB74; font-size: 60pt; position: absolute; z-index: 7; top: 45%; left: 80%;transform: translate(-50%, -50%);">Bienvenue</h3>
+            <h3 style="font-family: 'Italiana',serif; opacity: 60%; color: #FFCB74;font-size: 60pt; position: absolute;z-index: 7; top: 55%; left: 83%; transform: translate(-50%, -50%);">Willkommen</h3>
+            <h3 style="font-family: 'Italiana',serif; opacity: 60%; color: #FFCB74;font-size: 55pt; position: absolute;z-index: 7;top: 60%;left: 47%;transform: translate(-50%, -50%);">Benvenuto</h3>
+        </div>
+    </div>
+
+    {% block js %}
+        {% if user.is_authenticated %}
+            <script>
+                Swal.fire({
+                    icon: 'info',
+                    title: '¡Ooops!',
+                    text: 'Ya has iniciado sesión anteriormente',
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+                window.location.href = "{% url 'reserva' %}";
+            </script>
+        {% endif %}
+
+    {% endblock %}
+
+
+{% endblock %}

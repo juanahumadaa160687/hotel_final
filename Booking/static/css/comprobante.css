@@ -1,0 +1,125 @@
+/* Fonts */
+
+.italiana-regular {
+    font-family: "Italiana", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.antic-didone-regular {
+    font-family: "Antic Didone", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.montserrat{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body {
+    height: 100vh;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 0 40px 0;
+}
+
+html{
+    height: 100vh;
+    position: relative;
+}
+
+
+.titulo{
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+p{
+    font-size: 10pt;
+    line-height: 1;
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+
+.qr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+}
+
+.comprobante1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    z-index: 5;
+    top: 69%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+
+}
+
+.logos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: #293133;
+    gap: 20px;
+    width: 300px;
+    height: 250px;
+    border-radius: 10px 0 0 10px;
+}
+
+.lista{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.separador{
+    width: 20px;
+    height: 250px;
+    background-color: #FFCB74;
+}
+
+.fondo {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('../img/recepcion.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
